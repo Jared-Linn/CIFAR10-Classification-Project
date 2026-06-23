@@ -108,13 +108,9 @@ def step2_train_models(train_dataset, val_dataset):
     print("STEP 2: Model Training")
     print("=" * 70)
 
-    # 创建 DataLoader
-    test_dataset_temp = CIFAR10Dataset(
-        np.zeros((1, 3072)), np.zeros(1, dtype=int),
-        transform=get_val_transforms()
-    )
+    # 创建 DataLoader (仅训练/验证)
     train_loader, val_loader, _ = create_dataloaders(
-        train_dataset, val_dataset, test_dataset_temp, batch_size=BATCH_SIZE
+        train_dataset, val_dataset, batch_size=BATCH_SIZE
     )
 
     print(f"\n  Training samples: {len(train_dataset)}")
@@ -167,9 +163,9 @@ def step3_evaluate(baseline_trainer, resnet_trainer, test_dataset):
     print("STEP 3: Model Evaluation & Comparison")
     print("=" * 70)
 
-    _, _, test_loader = create_dataloaders(
-        test_dataset, test_dataset, test_dataset, batch_size=BATCH_SIZE
-    )
+    from torch.utils.data import DataLoader
+    test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False,
+                             num_workers=0, pin_memory=torch.cuda.is_available())
 
     # 3.1 Baseline 评估
     print("\n" + "-" * 40)
