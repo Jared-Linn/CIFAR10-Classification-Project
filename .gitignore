@@ -1,0 +1,22 @@
+# Large data files
+94ecd-main/
+94ecd-main.zip
+*.tar.gz
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+
+# Model checkpoints
+*.pth
+*.pt
+
+# Output images
+*.png
+*.jpg
+
+# OS
+.DS_Store
+Thumbs.db

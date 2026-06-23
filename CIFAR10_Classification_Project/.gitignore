@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model checkpoints
+checkpoints/*.pth
+checkpoints/*.pt
+
+# Output images
+outputs/*.png
+outputs/*.jpg
+outputs/*.pdf
+
+# Data (large files)
+data/raw/
+data/processed/
+data/split/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Report PDF
+report/*.pdf
